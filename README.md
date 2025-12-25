@@ -1,15 +1,11 @@
-# openseotest.org
+# OpenSeoTest
 
-A test suite for analyzing how search engine bots and AI crawlers handle JavaScript-rendered content. Each test page generates a unique debug hash that appears in server logs, asset URLs, and SEO markers - making it easy to correlate what bots actually execute vs. what they index.
+An open-source platform for technical SEO testing. Understand how Googlebot, Bingbot, and AI crawlers (ClaudeBot, GPTBot) behave with different JavaScript content and rendering techniques.
 
-## Quick Start
+Each test generates a unique debug hash that appears in server logs, HTML markers, and beacon tracking — letting you directly verify what bots download vs. what they execute.
 
-```bash
-composer install
-php -S localhost:8000 -t public
-```
+**Why this exists:** The SEO space needs more open, replicable experiments, not just opinions.
 
-Visit http://localhost:8000
 
 ## What's Tested
 
@@ -22,31 +18,12 @@ Visit http://localhost:8000
 | **Realtime** | Continuously updating timer + async status |
 | **HTTP Status** | 301, 302, 404, 500, 503 responses |
 
-## Adding Tests with Claude Code
+## Adding Tests
 
-### Add a test to an existing category
+If you have an idea what to test, feel free to create an issue 
+and we'll implement it. 
 
-```
-Add a new js-injection test called "timeout-3000" with a 3 second delay
-```
-
-Claude Code will update `config/tests.php`:
-```php
-'timeout-3000' => ['title' => '3000ms Timeout', 'delay' => 3000],
-```
-
-### Create a new test category
-
-```
-Create a new test category called "lazy-load" that tests lazy-loaded images.
-It should have tests for: viewport-trigger, scroll-trigger, and intersection-observer.
-Use the article template and create the JavaScript to lazy-load images.
-```
-
-Claude Code will:
-1. Add the category to `config/tests.php`
-2. Create `assets/js/tests/lazy-load.js`
-3. Update templates if needed
+For those who use Claude Code, you can create a test yourself and push a pull request with the implementation.
 
 ### The pattern
 
@@ -64,31 +41,8 @@ Each test automatically gets:
 - SEO markers (`OSTS-{hash}-{test}`) for verification
 - Beacon tracking for JS execution events
 
-## Project Structure
 
-```
-├── config/
-│   ├── tests.php        # Test definitions
-│   └── routes.php       # URL routing
-├── src/
-│   ├── Controllers/     # Request handlers
-│   └── Templates/       # PHP templates
-├── assets/
-│   ├── css/            # Stylesheets
-│   └── js/tests/       # Test JavaScript
-├── public/             # Web root
-└── tests/              # PHPUnit tests
-```
 
-## Running Tests
-
-```bash
-./vendor/bin/phpunit
-```
-
-## Deployment
-
-See [deploy/README.md](deploy/README.md) for Ansible playbook and nginx configuration.
 
 ## License
 
