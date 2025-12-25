@@ -1,0 +1,63 @@
+# Ansible Inventory for openseotest.org
+#
+# Update these values with your actual server details before deployment.
+#
+# Usage:
+#   ansible-playbook -i inventory.yml playbook.yml
+
+all:
+  hosts:
+    production:
+      # Replace with your actual server hostname or IP
+      ansible_host: openseotest.example.com
+      ansible_user: deploy
+      ansible_port: 22
+      # ansible_ssh_private_key_file: ~/.ssh/id_rsa
+
+  vars:
+    # Application settings
+    app_name: openseotest
+    app_domain: openseotest.org
+    app_env: production
+
+    # Paths
+    app_root: /var/www/openseotest
+    app_public: "{{ app_root }}/public"
+    app_logs: "{{ app_root }}/logs"
+
+    # PHP settings
+    php_version: "8.3"
+    php_fpm_socket: "/var/run/php/php{{ php_version }}-fpm.sock"
+    php_fpm_pool: openseotest
+
+    # Nginx settings
+    nginx_conf_path: /etc/nginx/sites-available
+    nginx_enabled_path: /etc/nginx/sites-enabled
+    nginx_snippets_path: /etc/nginx/snippets
+
+    # Log paths
+    nginx_access_log: /var/log/nginx/openseotest.access.log
+    nginx_error_log: /var/log/nginx/openseotest.error.log
+
+    # SSL settings (Let's Encrypt)
+    ssl_cert_path: /etc/letsencrypt/live/{{ app_domain }}/fullchain.pem
+    ssl_key_path: /etc/letsencrypt/live/{{ app_domain }}/privkey.pem
+
+    # Deployment settings
+    deploy_user: www-data
+    deploy_group: www-data
+
+    # Files/directories to exclude from sync
+    rsync_excludes:
+      - ".git"
+      - ".gitignore"
+      - ".env"
+      - "tests/"
+      - "phpunit.xml.dist"
+      - "PROMPTS.md"
+      - "SPECIFICATION.md"
+      - "*.md"
+      - "logs/*.log"
+      - ".DS_Store"
+      - "*.swp"
+      - "*.swo"

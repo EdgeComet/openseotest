@@ -1,0 +1,300 @@
+/**
+ * Tool Template Styles
+ *
+ * Used for realtime tests.
+ * Dashboard-like performance monitor interface.
+ */
+
+/* Tool Page Container */
+.tool-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Tool Header */
+.tool-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #0f3460;
+}
+
+.tool-header .brand {
+    color: #6c63ff;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+}
+
+.tool-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.tool-header .subtitle {
+    color: #888;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+@media (max-width: 700px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dashboard Card */
+.dashboard-card {
+    background-color: #16213e;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #0f3460;
+}
+
+.dashboard-card.primary {
+    grid-column: span 2;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .dashboard-card.primary {
+        grid-column: span 1;
+    }
+}
+
+.card-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin-bottom: 0.75rem;
+}
+
+/* Timer Display */
+.timer-display {
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.05em;
+}
+
+.timer-display .seconds {
+    color: #6c63ff;
+}
+
+.timer-display .milliseconds {
+    font-size: 2rem;
+    color: #888;
+}
+
+.timer-status {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #888;
+}
+
+.timer-status.running {
+    color: #28a745;
+}
+
+.timer-status.complete {
+    color: #6c63ff;
+}
+
+/* Metric Value */
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.metric-value.loading {
+    color: #666;
+    font-size: 1.25rem;
+}
+
+.metric-value.success {
+    color: #28a745;
+}
+
+.metric-value.warning {
+    color: #ffc107;
+}
+
+.metric-value.error {
+    color: #dc3545;
+}
+
+/* Status Indicator */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #666;
+}
+
+.status-dot.online {
+    background-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+    animation: pulse-green 2s ease-in-out infinite;
+}
+
+.status-dot.offline {
+    background-color: #dc3545;
+}
+
+.status-dot.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 8px rgba(40, 167, 69, 0.3); }
+    50% { box-shadow: 0 0 16px rgba(40, 167, 69, 0.6); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* Progress Bar */
+.progress-container {
+    margin-top: 1rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #0f3460;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #6c63ff;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* Activity Log */
+.activity-log {
+    background-color: #0f3460;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 0.8125rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.log-entry {
+    display: flex;
+    gap: 1rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+.log-time {
+    color: #888;
+    flex-shrink: 0;
+}
+
+.log-message {
+    color: #ccc;
+}
+
+.log-message.success {
+    color: #28a745;
+}
+
+.log-message.error {
+    color: #dc3545;
+}
+
+/* Test Info Box */
+.test-info {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #0f3460;
+    border-radius: 8px;
+    border-left: 4px solid #6c63ff;
+}
+
+.test-info h4 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6c63ff;
+    margin-bottom: 0.75rem;
+}
+
+.test-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9375rem;
+}
+
+.test-info p:last-child {
+    margin-bottom: 0;
+}
+
+.test-info code {
+    background-color: #1a1a2e;
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 0.875em;
+}
+
+/* Navigation */
+.tool-nav {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #0f3460;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tool-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #16213e;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.tool-nav a:hover {
+    background-color: #0f3460;
+    text-decoration: none;
+}
