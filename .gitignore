@@ -47,3 +47,5 @@ ehthumbs.db
 /coverage/
 clover.xml
 coverage.xml
+
+dev/
