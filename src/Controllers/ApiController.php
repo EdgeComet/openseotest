@@ -38,6 +38,13 @@ class ApiController
     {
         $response = Response::current();
 
+        // Validate hash format (8 hex characters)
+        if (!$this->isValidHash($hash)) {
+            $response->setStatusCode(400);
+            $response->setHeader('Content-Type', 'text/plain');
+            return 'Invalid hash';
+        }
+
         // Validate event name
         if (!$this->isValidEvent($event)) {
             $response->setStatusCode(400);
@@ -76,5 +83,13 @@ class ApiController
         }
 
         return false;
+    }
+
+    /**
+     * Check if hash matches expected format.
+     */
+    private function isValidHash(string $hash): bool
+    {
+        return preg_match('/^[a-f0-9]{8}$/', $hash) === 1;
     }
 }

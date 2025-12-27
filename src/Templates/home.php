@@ -64,7 +64,7 @@
         <p class="section-description">Select a category to begin testing. Each test includes specific behaviors to verify bot rendering capabilities.</p>
 
         <?php foreach ($categories as $slug => $category): ?>
-        <div class="category-section">
+        <div class="category-section" data-category="<?= htmlspecialchars($slug) ?>">
             <div class="category-header">
                 <h3><?= htmlspecialchars($category['name']) ?></h3>
                 <p class="category-description"><?= htmlspecialchars($category['description']) ?></p>
@@ -74,11 +74,11 @@
                 <a href="/lab/<?= htmlspecialchars($slug) ?>/<?= htmlspecialchars($testSlug) ?>" class="test-card">
                     <span class="test-name"><?= htmlspecialchars($test['title']) ?></span>
                     <?php if (isset($test['delay'])): ?>
-                    <span class="test-param"><?= $test['delay'] ?>ms</span>
+                    <span class="test-param"><?= htmlspecialchars($test['delay']) ?>ms</span>
                     <?php elseif (isset($test['steps'])): ?>
-                    <span class="test-param"><?= $test['steps'] ?> steps</span>
+                    <span class="test-param"><?= htmlspecialchars($test['steps']) ?> steps</span>
                     <?php elseif (isset($test['code'])): ?>
-                    <span class="test-param">HTTP <?= $test['code'] ?></span>
+                    <span class="test-param">HTTP <?= htmlspecialchars($test['code']) ?></span>
                     <?php endif; ?>
                 </a>
                 <?php endforeach; ?>

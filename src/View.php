@@ -38,10 +38,28 @@ class View
 
     /**
      * Get the full path to a template file.
+     *
+     * @throws RuntimeException If template path escapes the Templates directory
      */
     private static function getTemplatePath(string $template): string
     {
         $basePath = defined('APP_ROOT') ? APP_ROOT : dirname(__DIR__);
-        return $basePath . '/src/Templates/' . $template . '.php';
+        $templatesDir = $basePath . '/src/Templates';
+        $templatePath = $templatesDir . '/' . $template . '.php';
+
+        // Resolve to real path and validate it's within Templates directory
+        $realPath = realpath($templatePath);
+        $realTemplatesDir = realpath($templatesDir);
+
+        if ($realPath === false) {
+            // File doesn't exist - let caller handle with "Template not found"
+            return $templatePath;
+        }
+
+        if ($realTemplatesDir === false || !str_starts_with($realPath, $realTemplatesDir . '/')) {
+            throw new RuntimeException("Invalid template path: {$template}");
+        }
+
+        return $realPath;
     }
 }

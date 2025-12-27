@@ -46,6 +46,10 @@ class Response
      */
     public function setHeader(string $name, string $value): void
     {
+        // Strip CRLF to prevent header injection
+        $name = str_replace(["\r", "\n"], '', $name);
+        $value = str_replace(["\r", "\n"], '', $value);
+
         $this->headers[$name] = $value;
     }
 

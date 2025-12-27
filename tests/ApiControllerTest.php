@@ -42,9 +42,9 @@ class ApiControllerTest extends TestCase
      */
     public function testXDebugHashHeaderPresent(): void
     {
-        $this->controller->beacon('myhash99', 'content-injected');
+        $this->controller->beacon('dead0099', 'content-injected');
 
-        $this->assertSame('myhash99', Response::current()->getHeader('X-Debug-Hash'));
+        $this->assertSame('dead0099', Response::current()->getHeader('X-Debug-Hash'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ApiControllerTest extends TestCase
 
         foreach ($validEvents as $event) {
             Response::reset();
-            $result = $this->controller->beacon('testhash', $event);
+            $result = $this->controller->beacon('aabbccdd', $event);
             $this->assertSame('', $result, "Event {$event} should be valid");
             $this->assertSame(204, Response::current()->getStatusCode(), "Event {$event} should return 204");
         }
@@ -95,7 +95,7 @@ class ApiControllerTest extends TestCase
 
         foreach ($validPatterns as $event) {
             Response::reset();
-            $result = $this->controller->beacon('testhash', $event);
+            $result = $this->controller->beacon('aabbccdd', $event);
             $this->assertSame('', $result, "Event {$event} should be valid");
             $this->assertSame(204, Response::current()->getStatusCode());
         }
@@ -115,7 +115,7 @@ class ApiControllerTest extends TestCase
 
         foreach ($invalidPatterns as $event) {
             Response::reset();
-            $result = $this->controller->beacon('testhash', $event);
+            $result = $this->controller->beacon('aabbccdd', $event);
             $this->assertSame('Invalid event', $result, "Event {$event} should be invalid");
             $this->assertSame(400, Response::current()->getStatusCode());
         }
@@ -129,5 +129,27 @@ class ApiControllerTest extends TestCase
         $result = $this->controller->beacon('abc12345', 'ajax-complete');
 
         $this->assertSame('', $result);
+    }
+
+    /**
+     * Test invalid hash format is rejected.
+     */
+    public function testInvalidHashReturns400(): void
+    {
+        $invalidHashes = [
+            'short',           // Too short
+            'toolongvalue',    // Too long
+            'AABBCCDD',        // Uppercase not allowed
+            'ghijklmn',        // Non-hex letters
+            '12345678901',     // Too long
+            '../../../etc',    // Path traversal attempt
+        ];
+
+        foreach ($invalidHashes as $hash) {
+            Response::reset();
+            $result = $this->controller->beacon($hash, 'js-executed');
+            $this->assertSame('Invalid hash', $result, "Hash {$hash} should be invalid");
+            $this->assertSame(400, Response::current()->getStatusCode());
+        }
     }
 }

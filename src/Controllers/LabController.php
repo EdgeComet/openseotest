@@ -156,6 +156,11 @@ class LabController
     public function ajaxFetch(string $delay, string $hash): string
     {
         // Validate delay is numeric and in allowed list
+        if (!ctype_digit($delay)) {
+            Response::current()->setStatusCode(400);
+            Response::current()->setHeader('Content-Type', 'application/json');
+            return json_encode(['error' => 'Invalid delay value']);
+        }
         $delayMs = (int) $delay;
         if (!in_array($delayMs, self::ALLOWED_DELAYS, true)) {
             Response::current()->setStatusCode(400);
@@ -231,6 +236,11 @@ class LabController
     public function ajaxChainFetch(string $steps, string $hash, string $step): string
     {
         // Validate steps is 3 or 5
+        if (!ctype_digit($steps)) {
+            Response::current()->setStatusCode(400);
+            Response::current()->setHeader('Content-Type', 'application/json');
+            return json_encode(['error' => 'Invalid steps value']);
+        }
         $stepsInt = (int) $steps;
         if (!in_array($stepsInt, [3, 5], true)) {
             Response::current()->setStatusCode(400);
@@ -239,6 +249,11 @@ class LabController
         }
 
         // Validate step is 1 to steps
+        if (!ctype_digit($step)) {
+            Response::current()->setStatusCode(400);
+            Response::current()->setHeader('Content-Type', 'application/json');
+            return json_encode(['error' => 'Invalid step value']);
+        }
         $stepInt = (int) $step;
         if ($stepInt < 1 || $stepInt > $stepsInt) {
             Response::current()->setStatusCode(400);
@@ -417,6 +432,12 @@ class LabController
      */
     public function redirectTarget(string $code): string
     {
+        // Validate code is numeric
+        if (!ctype_digit($code)) {
+            Response::current()->setStatusCode(400);
+            return 'Invalid redirect code';
+        }
+
         $debugHash = HashGenerator::generate();
         Response::current()->setHeader('X-Debug-Hash', $debugHash);
         $asset = new Asset($debugHash);

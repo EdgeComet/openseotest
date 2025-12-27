@@ -14,7 +14,13 @@ $uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 // Check if the request is for an actual file in public/
 $publicPath = __DIR__ . $uri;
-if ($uri !== '/' && file_exists($publicPath) && is_file($publicPath)) {
+$realPath = realpath($publicPath);
+
+// Validate path is within public directory (prevents path traversal)
+if ($realPath &&
+    str_starts_with($realPath, __DIR__) &&
+    $uri !== '/' &&
+    is_file($realPath)) {
     // Serve the static file directly
     return false;
 }

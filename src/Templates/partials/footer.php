@@ -1,6 +1,7 @@
 <footer class="site-footer">
     <div class="footer-content">
-        <div class="footer-main">
+        <div class="footer-brand">
+            <a href="/" class="nav-logo">openseotest.org</a>
             <p class="footer-tagline">SEO & AI Bot Behavior Testing Platform</p>
             <p class="footer-edge-comet">
                 Built for testing with <a href="https://edgecomet.com" target="_blank" rel="noopener">Edge Comet</a>
