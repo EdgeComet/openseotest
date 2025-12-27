@@ -83,6 +83,15 @@
                 <strong>What is being tested?</strong>
                 <p><?= htmlspecialchars($categoryDescription ?? $testDescription ?? 'No description available.') ?></p>
             </div>
+            <div class="test-info-item full-width">
+                <strong>How to verify:</strong>
+                <ol>
+                    <li>Copy this page URL</li>
+                    <li>Open ChatGPT, Claude, or Gemini</li>
+                    <li>Ask: "What is the price of the product on this page?"</li>
+                    <li>If the AI answers with a specific price, it executed the JavaScript and loaded the AJAX data</li>
+                </ol>
+            </div>
             <div class="test-info-item">
                 <strong>Server Delay:</strong>
                 <span><?= htmlspecialchars((string)$delay) ?>ms</span>

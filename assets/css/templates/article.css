@@ -125,6 +125,16 @@
     font-size: 0.875em;
 }
 
+.test-info ol {
+    margin: 0.5rem 0 0 1.5rem;
+    padding: 0;
+}
+
+.test-info ol li {
+    margin-bottom: 0.25rem;
+    font-size: 0.9375rem;
+}
+
 /* Navigation */
 .article-nav {
     margin-top: 3rem;

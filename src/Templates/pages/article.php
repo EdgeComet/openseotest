@@ -11,43 +11,14 @@
     <div class="article-content">
         <p>
             The landscape of wireless technology has undergone remarkable transformation over the past decade.
-            From the early days of simple Bluetooth connectivity to today's sophisticated multi-device ecosystems,
-            the way we interact with our devices has fundamentally changed. At PixelPulse, we've been at the
-            forefront of this revolution, developing audio solutions that seamlessly integrate with modern lifestyles.
+            At PixelPulse, we've been at the forefront of this revolution, developing audio solutions
+            that seamlessly integrate with modern lifestyles.
         </p>
 
-        <h2>The Rise of True Wireless</h2>
-        <p>
-            True wireless technology represents a paradigm shift in how we experience audio. Unlike traditional
-            wireless solutions that still relied on cables between earbuds, true wireless earbuds operate
-            completely independently. This advancement required significant innovations in battery technology,
-            Bluetooth protocols, and miniaturization of electronic components.
-        </p>
-
-        <p>
-            PixelPulse engineers spent years perfecting the balance between audio quality, battery life, and
-            form factor. The result is a product line that delivers studio-quality sound in a package small
-            enough to fit comfortably in your ear for hours of continuous use.
-        </p>
-
-        <h2>Connectivity Standards</h2>
-        <p>
-            Modern wireless audio devices must navigate a complex ecosystem of connectivity standards.
-            Bluetooth 5.0 and beyond have introduced improvements in range, speed, and power efficiency.
-            These advancements enable features like seamless device switching, lower latency for video
-            synchronization, and extended battery life that users have come to expect.
-        </p>
+        <h2>Dynamic Content</h2>
 
         <!-- Injected Content Placeholder -->
         <div id="injected-content"></div>
-
-        <h2>Looking Forward</h2>
-        <p>
-            The future of wireless technology promises even more exciting developments. Spatial audio,
-            adaptive noise cancellation powered by AI, and health monitoring capabilities are just
-            the beginning. As PixelPulse continues to innovate, we remain committed to delivering
-            products that enhance how people experience sound in their daily lives.
-        </p>
     </div>
 
     <!-- Test Information -->
@@ -66,6 +37,21 @@
                 <strong>What is being tested?</strong>
                 <p><?= htmlspecialchars($categoryDescription ?? $testDescription ?? 'No description available.') ?></p>
             </div>
+            <?php if ($category === 'js-injection'): ?>
+            <div class="test-info-item full-width">
+                <strong>How to verify:</strong>
+                <ol>
+                    <li>Copy this page URL</li>
+                    <li>Open ChatGPT, Claude, or Gemini</li>
+                    <?php if ($test === 'domcontentinit'): ?>
+                    <li>Ask: "What does the PixelPulse team say about innovation on this page?"</li>
+                    <?php else: ?>
+                    <li>Ask: "What was injected after the delay on this page?"</li>
+                    <?php endif; ?>
+                    <li>If the AI answers correctly, it executed the JavaScript and saw the injected content</li>
+                </ol>
+            </div>
+            <?php endif; ?>
             <?php if (isset($delay) && $delay > 0): ?>
             <div class="test-info-item">
                 <strong>Delay:</strong>

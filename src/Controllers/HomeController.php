@@ -40,7 +40,7 @@ class HomeController
 
         // Render layout with home content
         return View::render('layout', [
-            'title' => 'openseotest.org',
+            'title' => 'SEO & AI Bot Testing Platform - openseotest.org',
             'content' => $content,
             'debugHash' => $debugHash,
             'asset' => $asset,
