@@ -1,33 +1,40 @@
 <div class="home-page">
     <section class="hero">
-        <h1>openseotest.org</h1>
-        <p class="tagline">SEO &amp; AI Bot Behavior Testing Platform</p>
+        <h1>SEO &amp; AI Bot Behavior Testing Platform</h1>
     </section>
 
     <section class="intro" id="about">
         <h2>About This Project</h2>
         <p>
-            Welcome to openseotest.org, a testing platform designed to analyze how search engine
-            crawlers and AI bots handle JavaScript-rendered content, AJAX requests, and various
-            HTTP behaviors.
+            <strong>OpenSeoTest</strong> is an open-source platform for performing technical SEO testing.
+            The goal is to provide a transparent laboratory to understand how Googlebot,
+            search crawlers, and AI bots behave with different JavaScript content and techniques.
         </p>
         <p>
-            This project is built for use with <a href="https://edgecomet.com" target="_blank" rel="noopener">Edge Comet</a>,
-            a dynamic rendering service for SEO optimization. Use these tests to verify how your
-            content appears to search engines and AI crawlers.
+            We believe that the SEO space needs more open and replicable experiments, not just opinions.
+            On this platform, access logs are open for everyone, allowing you to verify your hypotheses
+            immediately with real data.
+        </p>
+        <p>
+            We regularly publish our experiment results and deep-dive researches on the
+            <a href="https://edgecomet.com/blog/" target="_blank" rel="noopener">EdgeComet Blog</a>.
+        </p>
+        <p>
+            Whether you are testing dynamic rendering implementations or researching bot capabilities, this project enables you to create new tests, deploy them,
+            and observe the results.
         </p>
         <div class="features">
             <div class="feature">
-                <strong>For SEO Researchers</strong>
-                <span>Understand how bots render JavaScript content</span>
+                <strong>Open Science</strong>
+                <span>Replicable experiments with open access logs</span>
             </div>
             <div class="feature">
-                <strong>For Developers</strong>
-                <span>Test your dynamic rendering implementation</span>
+                <strong>Bot Behavior</strong>
+                <span>Analyze how crawlers render JS & AJAX</span>
             </div>
             <div class="feature">
-                <strong>Privacy First</strong>
-                <span>No user tracking - only bot behavior analysis</span>
+                <strong>Community Driven</strong>
+                <span>Create and deploy your own test cases</span>
             </div>
         </div>
     </section>
@@ -38,22 +45,33 @@
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                    <h4>Debug Hash System</h4>
-                    <p>Each page view generates a unique 8-character hash that appears in URLs, page content, and HTTP headers.</p>
+                    <h4>The Debug Hash System</h4>
+                    <p>
+                        Every request generates a unique 8-character <strong>Debug Hash</strong>. This hash is injected into
+                        the URL, HTML content, and X-Debug-Hash headers. It acts as a "fingerprint" that allows us to
+                        distinguish between the initial server-side response and subsequent client-side executions.
+                    </p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                    <h4>Beacon Tracking</h4>
-                    <p>JavaScript beacons fire when content is injected, allowing us to correlate bot visits with JS execution.</p>
+                    <h4>Beacon Correlation</h4>
+                    <p>
+                        When a bot renders JavaScript, our beacon fires the same unique hash back to the server.
+                        This confirms that the JS was executed and allows us to verify exactly what content the bot was able to "see" and interact with.
+                    </p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h4>Log Analysis</h4>
-                    <p>Compare nginx logs with beacon logs to see if bots executed JavaScript and when.</p>
+                    <h4>Log Analysis (Coming Soon)</h4>
+                    <p>
+                        We are building an open dashboard to analyze these hashes in real-time.
+                        Soon, you will be able to cross-reference server logs with JS beacon data to see the exact
+                        timeline of bot rendering behavior across the entire platform.
+                    </p>
                 </div>
             </div>
         </div>
@@ -88,8 +106,28 @@
     </section>
 
     <section class="quick-start">
-        <h2>Quick Start</h2>
-        <p>Not sure where to begin? Try these popular tests:</p>
+        <h2>Quick Start: Test AI Capabilities Yourself</h2>
+        <p>You don't need to be a developer to see how AI bots handle the web. Try this simple experiment:</p>
+        
+        <div class="experiment-steps">
+            <ol>
+                <li>
+                    <strong>Pick a test:</strong> Right-click and copy the link for the 
+                    <a href="/lab/ajax/delay-2000">AJAX Load (2s)</a> test.
+                </li>
+                <li>
+                    <strong>Open an AI Chat:</strong> Go to ChatGPT, Claude, or Gemini.
+                </li>
+                <li>
+                    <strong>Ask a question:</strong> Paste the link and ask: <em>"What is the price of the product on this page?"</em>
+                </li>
+                <li>
+                    <strong>Verify:</strong> If the AI answers with the correct price (which is generated via JavaScript after a delay), you know it successfully executed the code!
+                </li>
+            </ol>
+        </div>
+
+        <h3>Popular Tests to Try</h3>
         <div class="quick-links">
             <a href="/lab/js-injection/timeout-500" class="quick-link">
                 <strong>JS Injection (500ms)</strong>
@@ -102,6 +140,19 @@
             <a href="/lab/ajax-chain/3-steps" class="quick-link">
                 <strong>Chained AJAX</strong>
                 <span>Sequential loading of multiple items</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="contribute" id="contribute">
+        <h2>Open Source & Contributions</h2>
+        <p>
+            OpenSeoTest is a community-driven project. We encourage SEO researchers and developers to contribute new test cases,
+            improve existing ones, or help with the platform's infrastructure.
+        </p>
+        <div class="cta-container">
+            <a href="https://github.com/EdgeComet/openseotest" class="btn btn-github" target="_blank" rel="noopener">
+                View on GitHub
             </a>
         </div>
     </section>

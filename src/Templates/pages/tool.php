@@ -68,18 +68,40 @@
     <!-- Test Information -->
     <div class="test-info">
         <h4>Test Information</h4>
-        <p><strong>Category:</strong> <?= htmlspecialchars($categoryName) ?></p>
-        <p><strong>Test:</strong> <?= htmlspecialchars($testTitle) ?></p>
-        <p><strong>Description:</strong> <?= htmlspecialchars($testDescription ?? 'No description available.') ?></p>
-        <p><strong>Timer Duration:</strong> 15 seconds (updates every 300ms)</p>
-        <p><strong>Status Fetch:</strong> 2 second server delay</p>
-        <p><strong>Debug Hash:</strong> <code><?= htmlspecialchars($debugHash) ?></code></p>
-        <p class="mt-2">
-            <em>This page tests continuous JavaScript updates. The timer counts from 0 to 15
-            seconds with updates every 300ms. Simultaneously, an AJAX request fetches system
-            status with a 2-second delay. This tests how bots handle pages with real-time
-            dynamic content.</em>
-        </p>
+        <div class="test-info-grid">
+            <div class="test-info-item">
+                <strong>Category:</strong> 
+                <span><?= htmlspecialchars($categoryName) ?></span>
+            </div>
+            <div class="test-info-item">
+                <strong>Test Case:</strong>
+                <span><?= htmlspecialchars($testTitle) ?></span>
+            </div>
+            <div class="test-info-item full-width">
+                <strong>What is being tested?</strong>
+                <p><?= htmlspecialchars($categoryDescription ?? $testDescription ?? 'No description available.') ?></p>
+            </div>
+            <div class="test-info-item">
+                <strong>Timer Duration:</strong>
+                <span>15 seconds (updates every 300ms)</span>
+            </div>
+            <div class="test-info-item">
+                <strong>Status Fetch:</strong>
+                <span>2 second server delay</span>
+            </div>
+            <div class="test-info-item">
+                <strong>Debug Hash:</strong>
+                <code><?= htmlspecialchars($debugHash) ?></code>
+            </div>
+            <div class="test-info-item full-width">
+                <strong>Note:</strong>
+                <p>
+                    This page tests continuous JavaScript updates. The timer counts from 0 to 15
+                    seconds with updates every 300ms. Simultaneously, an AJAX request fetches system
+                    status with a 2-second delay.
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation -->

@@ -70,16 +70,35 @@
     <!-- Test Information -->
     <div class="test-info">
         <h4>Test Information</h4>
-        <p><strong>Category:</strong> <?= htmlspecialchars($categoryName) ?></p>
-        <p><strong>Test:</strong> <?= htmlspecialchars($testTitle) ?></p>
-        <p><strong>Description:</strong> <?= htmlspecialchars($testDescription ?? 'No description available.') ?></p>
-        <p><strong>Server Delay:</strong> <?= htmlspecialchars((string)$delay) ?>ms</p>
-        <p><strong>Debug Hash:</strong> <code><?= htmlspecialchars($debugHash) ?></code></p>
-        <p class="mt-2">
-            <em>The price, availability, and shipping information will be loaded via AJAX after a
-            <?= htmlspecialchars((string)$delay) ?>ms server-side delay. This tests how search engine
-            bots handle dynamically loaded content.</em>
-        </p>
+        <div class="test-info-grid">
+            <div class="test-info-item">
+                <strong>Category:</strong> 
+                <span><?= htmlspecialchars($categoryName) ?></span>
+            </div>
+            <div class="test-info-item">
+                <strong>Test Case:</strong>
+                <span><?= htmlspecialchars($testTitle) ?></span>
+            </div>
+            <div class="test-info-item full-width">
+                <strong>What is being tested?</strong>
+                <p><?= htmlspecialchars($categoryDescription ?? $testDescription ?? 'No description available.') ?></p>
+            </div>
+            <div class="test-info-item">
+                <strong>Server Delay:</strong>
+                <span><?= htmlspecialchars((string)$delay) ?>ms</span>
+            </div>
+            <div class="test-info-item">
+                <strong>Debug Hash:</strong>
+                <code><?= htmlspecialchars($debugHash) ?></code>
+            </div>
+            <div class="test-info-item full-width">
+                <strong>Note:</strong>
+                <p>
+                    The price, availability, and shipping information will be loaded via AJAX after a
+                    <?= htmlspecialchars((string)$delay) ?>ms server-side delay.
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation -->

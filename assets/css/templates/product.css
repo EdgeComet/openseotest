@@ -27,7 +27,7 @@
 
 /* Product Image */
 .product-image {
-    background-color: #16213e;
+    background-color: var(--color-bg-secondary);
     border-radius: 12px;
     overflow: hidden;
     aspect-ratio: 1;
@@ -43,7 +43,7 @@
 }
 
 .product-image-placeholder {
-    color: #666;
+    color: var(--color-text-muted);
     font-size: 1rem;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .product-brand {
-    color: #6c63ff;
+    color: var(--color-accent);
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -74,12 +74,12 @@
 }
 
 .stars {
-    color: #ffc107;
+    color: var(--color-stars);
     font-size: 1.25rem;
 }
 
 .rating-count {
-    color: #888;
+    color: var(--color-text-muted);
     font-size: 0.875rem;
 }
 
@@ -87,16 +87,16 @@
 .product-price {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--color-text-primary);
 }
 
 .product-price.loading {
-    color: #666;
+    color: var(--color-text-muted);
     font-size: 1.5rem;
 }
 
 .product-price.error {
-    color: #dc3545;
+    color: var(--color-error);
     font-size: 1.25rem;
 }
 
@@ -112,19 +112,19 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #666;
+    background-color: var(--color-text-muted);
 }
 
 .availability-indicator.in-stock {
-    background-color: #28a745;
+    background-color: var(--color-success);
 }
 
 .availability-indicator.out-of-stock {
-    background-color: #dc3545;
+    background-color: var(--color-error);
 }
 
 .availability-indicator.error {
-    background-color: #dc3545;
+    background-color: var(--color-error);
 }
 
 .product-availability.loading .availability-indicator {
@@ -138,7 +138,7 @@
 
 /* Shipping */
 .product-shipping {
-    color: #888;
+    color: var(--color-text-muted);
     font-size: 0.9375rem;
     display: flex;
     align-items: center;
@@ -146,17 +146,17 @@
 }
 
 .product-shipping.loading {
-    color: #555;
+    color: var(--color-text-muted);
 }
 
 .product-shipping.error {
-    color: #dc3545;
+    color: var(--color-error);
 }
 
 /* Add to Cart Button */
 .add-to-cart {
-    background-color: #6c63ff;
-    color: #fff;
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
     border: none;
     padding: 1rem 2rem;
     font-size: 1.125rem;
@@ -168,7 +168,7 @@
 }
 
 .add-to-cart:hover {
-    background-color: #5a52d5;
+    background-color: var(--color-accent-hover);
 }
 
 .add-to-cart:active {
@@ -176,7 +176,7 @@
 }
 
 .add-to-cart:disabled {
-    background-color: #444;
+    background-color: var(--color-border);
     cursor: not-allowed;
 }
 
@@ -184,7 +184,7 @@
 .product-description {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid #0f3460;
+    border-top: 1px solid var(--color-border);
 }
 
 .product-description h2 {
@@ -193,7 +193,7 @@
 }
 
 .product-description p {
-    color: #ccc;
+    color: var(--color-text-secondary);
     line-height: 1.8;
 }
 
@@ -216,30 +216,30 @@
     padding: 0.5rem 0;
     padding-left: 1.5rem;
     position: relative;
-    color: #ccc;
+    color: var(--color-text-secondary);
 }
 
 .product-features li::before {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #6c63ff;
+    color: var(--color-accent);
 }
 
 /* Test Info Box */
 .test-info {
     margin: 2rem 0;
     padding: 1.5rem;
-    background-color: #0f3460;
+    background-color: var(--color-bg-tertiary);
     border-radius: 8px;
-    border-left: 4px solid #6c63ff;
+    border-left: 4px solid var(--color-accent);
 }
 
 .test-info h4 {
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #6c63ff;
+    color: var(--color-accent);
     margin-bottom: 0.75rem;
 }
 
@@ -253,7 +253,7 @@
 }
 
 .test-info code {
-    background-color: #1a1a2e;
+    background-color: var(--color-bg-code);
     padding: 0.125rem 0.375rem;
     border-radius: 3px;
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
@@ -264,7 +264,7 @@
 .product-nav {
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid #0f3460;
+    border-top: 1px solid var(--color-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -277,19 +277,19 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: #16213e;
+    background-color: var(--color-bg-secondary);
     border-radius: 4px;
     transition: background-color 0.2s ease;
 }
 
 .product-nav a:hover {
-    background-color: #0f3460;
+    background-color: var(--color-bg-tertiary);
     text-decoration: none;
 }
 
 /* Loading Skeleton */
 .skeleton {
-    background: linear-gradient(90deg, #16213e 25%, #1e2a4a 50%, #16213e 75%);
+    background: linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-shine) 50%, var(--skeleton-base) 75%);
     background-size: 200% 100%;
     animation: skeleton-loading 1.5s infinite;
     border-radius: 4px;

@@ -1,8 +1,57 @@
 /**
  * openseotest.org - Main Stylesheet
  *
- * Dark navy theme similar to Edge Comet but simpler.
+ * Professional Light Theme with Coral/Orange Accent
  */
+
+/* ================================
+   CSS Custom Properties
+   ================================ */
+:root {
+    /* Backgrounds */
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f6f8fa;
+    --color-bg-tertiary: #f0f2f5;
+    --color-bg-elevated: #ffffff;
+    --color-bg-nav: #f4f7fa;
+    --color-bg-code: #f6f8fa;
+
+    /* Text */
+    --color-text-primary: #1f2328;
+    --color-text-secondary: #656d76;
+    --color-text-muted: #8b949e;
+    --color-text-inverse: #ffffff;
+
+    /* Accent (Coral/Orange) */
+    --color-accent: #ff6b4a;
+    --color-accent-hover: #e55a3a;
+    --color-accent-light: #fff4f1;
+    --color-accent-muted: rgba(255, 107, 74, 0.1);
+
+    /* Borders */
+    --color-border: #d0d7de;
+    --color-border-muted: #e1e4e8;
+    --color-border-accent: #ff6b4a;
+
+    /* Semantic */
+    --color-success: #1a7f37;
+    --color-success-light: #dafbe1;
+    --color-warning: #9a6700;
+    --color-warning-light: #fff8c5;
+    --color-error: #cf222e;
+    --color-error-light: #ffebe9;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(31, 35, 40, 0.06);
+    --shadow-md: 0 3px 6px rgba(31, 35, 40, 0.1);
+    --shadow-lg: 0 8px 24px rgba(31, 35, 40, 0.12);
+    --shadow-elevated: 0 12px 28px rgba(31, 35, 40, 0.15);
+
+    /* Special */
+    --color-stars: #e3b341;
+    --skeleton-base: #e1e4e8;
+    --skeleton-shine: #f6f8fa;
+}
 
 /* Reset */
 *,
@@ -13,18 +62,23 @@
     box-sizing: border-box;
 }
 
+/* Offset anchor scroll for sticky nav */
+[id] {
+    scroll-margin-top: 70px;
+}
+
 /* Base */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background-color: #1a1a2e;
-    color: #eaeaea;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-secondary);
     line-height: 1.6;
     min-height: 100vh;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    color: #fff;
+    color: var(--color-text-primary);
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -39,13 +93,13 @@ p {
 
 /* Links */
 a {
-    color: #6c63ff;
+    color: var(--color-accent);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #8b83ff;
+    color: var(--color-accent-hover);
     text-decoration: underline;
 }
 
@@ -61,14 +115,14 @@ a:hover {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    background-color: rgba(108, 99, 255, 0.9);
-    color: #fff;
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
     padding: 0.5rem 1rem;
     border-radius: 4px;
     font-size: 0.75rem;
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
     z-index: 9999;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-md);
 }
 
 /* Categories Grid */
@@ -80,16 +134,18 @@ a:hover {
 }
 
 .category-card {
-    background-color: #16213e;
+    background-color: var(--color-bg-secondary);
     border-radius: 8px;
     padding: 1.5rem;
-    border: 1px solid #0f3460;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .category-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-border-accent);
 }
 
 .category-card h3 {
@@ -97,7 +153,7 @@ a:hover {
 }
 
 .category-card .test-count {
-    color: #888;
+    color: var(--color-text-muted);
     font-size: 0.875rem;
     margin-bottom: 1rem;
 }
@@ -106,7 +162,7 @@ a:hover {
 .intro {
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #0f3460;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .intro h1 {
@@ -114,7 +170,7 @@ a:hover {
 }
 
 .intro .tagline {
-    color: #888;
+    color: var(--color-text-muted);
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
 }
@@ -130,7 +186,7 @@ a:hover {
 
 /* Utility Classes */
 .text-muted {
-    color: #888;
+    color: var(--color-text-muted);
 }
 
 .mt-1 { margin-top: 0.5rem; }
@@ -144,8 +200,8 @@ a:hover {
    Navigation
    ================================ */
 .main-nav {
-    background-color: #0f1629;
-    border-bottom: 1px solid #1e2a4a;
+    background-color: var(--color-bg-nav);
+    border-bottom: 1px solid var(--color-border);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -164,12 +220,12 @@ a:hover {
 .nav-logo {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--color-text-primary);
     text-decoration: none;
 }
 
 .nav-logo:hover {
-    color: #6c63ff;
+    color: var(--color-accent);
     text-decoration: none;
 }
 
@@ -180,14 +236,14 @@ a:hover {
 }
 
 .nav-link {
-    color: #aaa;
+    color: var(--color-text-secondary);
     text-decoration: none;
     font-size: 0.9375rem;
     transition: color 0.2s;
 }
 
 .nav-link:hover {
-    color: #fff;
+    color: var(--color-text-primary);
     text-decoration: none;
 }
 
@@ -198,8 +254,8 @@ a:hover {
 
 .nav-dropdown-btn {
     background: none;
-    border: 1px solid #1e2a4a;
-    color: #aaa;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
@@ -208,8 +264,8 @@ a:hover {
 }
 
 .nav-dropdown-btn:hover {
-    color: #fff;
-    border-color: #6c63ff;
+    color: var(--color-text-primary);
+    border-color: var(--color-accent);
 }
 
 .nav-dropdown-content {
@@ -218,11 +274,11 @@ a:hover {
     top: 100%;
     left: 0;
     min-width: 200px;
-    background-color: #16213e;
-    border: 1px solid #1e2a4a;
+    background-color: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
     border-radius: 4px;
     margin-top: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-elevated);
 }
 
 .nav-dropdown:hover .nav-dropdown-content {
@@ -232,14 +288,14 @@ a:hover {
 .nav-dropdown-content a {
     display: block;
     padding: 0.75rem 1rem;
-    color: #ccc;
+    color: var(--color-text-secondary);
     text-decoration: none;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .nav-dropdown-content a:hover {
-    background-color: #1e2a4a;
-    color: #fff;
+    background-color: var(--color-accent-light);
+    color: var(--color-accent);
     text-decoration: none;
 }
 
@@ -267,27 +323,27 @@ a:hover {
 .breadcrumbs li:not(:last-child)::after {
     content: '/';
     margin-left: 0.5rem;
-    color: #666;
+    color: var(--color-text-muted);
 }
 
 .breadcrumbs a {
-    color: #888;
+    color: var(--color-text-muted);
 }
 
 .breadcrumbs a:hover {
-    color: #6c63ff;
+    color: var(--color-accent);
 }
 
 .breadcrumbs span {
-    color: #ccc;
+    color: var(--color-text-primary);
 }
 
 /* ================================
    Footer
    ================================ */
 .site-footer {
-    background-color: #0f1629;
-    border-top: 1px solid #1e2a4a;
+    background-color: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
     padding: 2rem;
     margin-top: 4rem;
 }
@@ -303,13 +359,13 @@ a:hover {
 }
 
 .footer-tagline {
-    color: #888;
+    color: var(--color-text-muted);
     margin-bottom: 0.25rem;
 }
 
 .footer-edge-comet {
     font-size: 0.875rem;
-    color: #666;
+    color: var(--color-text-muted);
     margin-bottom: 0;
 }
 
@@ -319,12 +375,63 @@ a:hover {
 }
 
 .footer-links a {
-    color: #888;
+    color: var(--color-text-secondary);
     font-size: 0.875rem;
 }
 
 .footer-links a:hover {
-    color: #6c63ff;
+    color: var(--color-accent);
+}
+
+.footer-brand {
+    max-width: 550px;
+}
+
+.footer-mission {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+.footer-links-group {
+    display: flex;
+    gap: 3rem;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-column h4 {
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+.footer-column a:hover {
+    color: var(--color-accent);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
 }
 
 /* ================================
@@ -348,17 +455,17 @@ a:hover {
 
 .hero .tagline {
     font-size: 1.25rem;
-    color: #888;
+    color: var(--color-text-muted);
     margin-bottom: 0;
 }
 
 /* About Section */
 .home-page .intro {
-    background-color: #16213e;
+    background-color: var(--color-bg-secondary);
     border-radius: 8px;
     padding: 2rem;
     margin-bottom: 3rem;
-    border: none;
+    border: 1px solid var(--color-border);
 }
 
 .home-page .intro h2 {
@@ -373,20 +480,20 @@ a:hover {
 }
 
 .feature {
-    background-color: #1a1a2e;
+    background-color: var(--color-bg-tertiary);
     padding: 1rem;
     border-radius: 4px;
 }
 
 .feature strong {
     display: block;
-    color: #6c63ff;
+    color: var(--color-accent);
     margin-bottom: 0.25rem;
 }
 
 .feature span {
     font-size: 0.875rem;
-    color: #aaa;
+    color: var(--color-text-muted);
 }
 
 /* How It Works */
@@ -413,8 +520,8 @@ a:hover {
 .step-number {
     width: 40px;
     height: 40px;
-    background-color: #6c63ff;
-    color: #fff;
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -428,7 +535,7 @@ a:hover {
 }
 
 .step-content p {
-    color: #aaa;
+    color: var(--color-text-secondary);
     margin-bottom: 0;
 }
 
@@ -442,21 +549,22 @@ a:hover {
 }
 
 .section-description {
-    color: #888;
+    color: var(--color-text-muted);
     margin-bottom: 2rem;
 }
 
 .category-section {
     margin-bottom: 2rem;
-    background-color: #16213e;
+    background-color: var(--color-bg-secondary);
     border-radius: 8px;
     padding: 1.5rem;
+    border: 1px solid var(--color-border);
 }
 
 .category-header {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #1e2a4a;
+    border-bottom: 1px solid var(--color-border-muted);
 }
 
 .category-header h3 {
@@ -464,7 +572,7 @@ a:hover {
 }
 
 .category-header .category-description {
-    color: #888;
+    color: var(--color-text-muted);
     font-size: 0.9375rem;
     margin-bottom: 0;
 }
@@ -480,22 +588,24 @@ a:hover {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: #1a1a2e;
+    background-color: var(--color-bg-tertiary);
     border-radius: 4px;
-    color: #ccc;
+    color: var(--color-text-secondary);
     text-decoration: none;
     font-size: 0.875rem;
     transition: all 0.2s;
+    border: 1px solid var(--color-border-muted);
 }
 
 .test-card:hover {
-    background-color: #6c63ff;
-    color: #fff;
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
     text-decoration: none;
+    border-color: var(--color-accent);
 }
 
 .test-param {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.06);
     padding: 0.125rem 0.5rem;
     border-radius: 3px;
     font-size: 0.75rem;
@@ -503,10 +613,11 @@ a:hover {
 
 /* Quick Start */
 .quick-start {
-    background-color: #16213e;
+    background-color: var(--color-bg-secondary);
     border-radius: 8px;
     padding: 2rem;
     margin-bottom: 2rem;
+    border: 1px solid var(--color-border);
 }
 
 .quick-start h2 {
@@ -514,7 +625,7 @@ a:hover {
 }
 
 .quick-start > p {
-    color: #888;
+    color: var(--color-text-muted);
     margin-bottom: 1.5rem;
 }
 
@@ -527,33 +638,34 @@ a:hover {
 .quick-link {
     display: block;
     padding: 1rem;
-    background-color: #1a1a2e;
+    background-color: var(--color-bg-primary);
     border-radius: 4px;
     text-decoration: none;
     transition: all 0.2s;
-    border: 1px solid #1e2a4a;
+    border: 1px solid var(--color-border);
 }
 
 .quick-link:hover {
-    border-color: #6c63ff;
+    border-color: var(--color-accent);
     text-decoration: none;
+    box-shadow: var(--shadow-md);
 }
 
 .quick-link strong {
     display: block;
-    color: #fff;
+    color: var(--color-text-primary);
     margin-bottom: 0.25rem;
 }
 
 .quick-link span {
     font-size: 0.875rem;
-    color: #888;
+    color: var(--color-text-muted);
 }
 
 /* Warning box */
 .warning {
-    background-color: rgba(233, 69, 96, 0.1);
-    border-left: 3px solid #e94560;
+    background-color: var(--color-error-light);
+    border-left: 3px solid var(--color-error);
     padding: 1rem;
     border-radius: 0 4px 4px 0;
 }

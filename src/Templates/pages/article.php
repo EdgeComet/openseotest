@@ -53,13 +53,30 @@
     <!-- Test Information -->
     <div class="test-info">
         <h4>Test Information</h4>
-        <p><strong>Category:</strong> <?= htmlspecialchars($categoryName) ?></p>
-        <p><strong>Test:</strong> <?= htmlspecialchars($testTitle) ?></p>
-        <p><strong>Description:</strong> <?= htmlspecialchars($testDescription ?? 'No description available.') ?></p>
-        <?php if (isset($delay) && $delay > 0): ?>
-        <p><strong>Delay:</strong> <?= htmlspecialchars((string)$delay) ?>ms</p>
-        <?php endif; ?>
-        <p><strong>Debug Hash:</strong> <code><?= htmlspecialchars($debugHash) ?></code></p>
+        <div class="test-info-grid">
+            <div class="test-info-item">
+                <strong>Category:</strong> 
+                <span><?= htmlspecialchars($categoryName) ?></span>
+            </div>
+            <div class="test-info-item">
+                <strong>Test Case:</strong>
+                <span><?= htmlspecialchars($testTitle) ?></span>
+            </div>
+            <div class="test-info-item full-width">
+                <strong>What is being tested?</strong>
+                <p><?= htmlspecialchars($categoryDescription ?? $testDescription ?? 'No description available.') ?></p>
+            </div>
+            <?php if (isset($delay) && $delay > 0): ?>
+            <div class="test-info-item">
+                <strong>Delay:</strong>
+                <span><?= htmlspecialchars((string)$delay) ?>ms</span>
+            </div>
+            <?php endif; ?>
+            <div class="test-info-item">
+                <strong>Debug Hash:</strong>
+                <code><?= htmlspecialchars($debugHash) ?></code>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation -->

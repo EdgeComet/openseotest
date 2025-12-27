@@ -67,30 +67,41 @@
     <!-- Test Information -->
     <div class="test-info">
         <h4>Test Information</h4>
-        <p><strong>Category:</strong> <?= htmlspecialchars($categoryName) ?></p>
-        <p><strong>Test:</strong> <?= htmlspecialchars($testTitle) ?></p>
-        <p><strong>Description:</strong> <?= htmlspecialchars($testDescription ?? 'No description available.') ?></p>
-        <p><strong>Debug Hash:</strong> <code><?= htmlspecialchars($debugHash) ?></code></p>
+        <div class="test-info-grid">
+            <div class="test-info-item">
+                <strong>Category:</strong> 
+                <span><?= htmlspecialchars($categoryName) ?></span>
+            </div>
+            <div class="test-info-item">
+                <strong>Test Case:</strong>
+                <span><?= htmlspecialchars($testTitle) ?></span>
+            </div>
+            <div class="test-info-item full-width">
+                <strong>What is being tested?</strong>
+                <p><?= htmlspecialchars($categoryDescription ?? $testDescription ?? 'No description available.') ?></p>
+            </div>
+            <div class="test-info-item">
+                <strong>Debug Hash:</strong>
+                <code><?= htmlspecialchars($debugHash) ?></code>
+            </div>
 
-        <?php if ($test === 'syntax-before'): ?>
-        <p class="mt-2 warning">
-            <strong>Expected Behavior:</strong> This page contains a JavaScript syntax error.
-            The script will fail to parse, so NO dynamic content should be injected and NO
-            beacons should fire. Check your browser console for the syntax error.
-        </p>
-        <?php elseif ($test === 'runtime-before'): ?>
-        <p class="mt-2 warning">
-            <strong>Expected Behavior:</strong> This page contains a JavaScript runtime error
-            (ReferenceError) before the injection code. NO dynamic content should appear and
-            NO beacons should fire. Check your browser console for the error.
-        </p>
-        <?php elseif ($test === 'error-between'): ?>
-        <p class="mt-2 warning">
-            <strong>Expected Behavior:</strong> This page has an error BETWEEN two injection
-            attempts. The FIRST review should load successfully, but the SECOND should NOT
-            appear due to the runtime error. Only the first beacon should fire.
-        </p>
-        <?php endif; ?>
+            <?php if ($test === 'syntax-before'): ?>
+            <div class="test-info-item full-width warning-box">
+                <strong>Expected Behavior:</strong>
+                <p>This page contains a JavaScript syntax error. The script will fail to parse, so NO dynamic content should be injected and NO beacons should fire.</p>
+            </div>
+            <?php elseif ($test === 'runtime-before'): ?>
+            <div class="test-info-item full-width warning-box">
+                <strong>Expected Behavior:</strong>
+                <p>This page contains a JavaScript runtime error (ReferenceError) before the injection code. NO dynamic content should appear and NO beacons should fire.</p>
+            </div>
+            <?php elseif ($test === 'error-between'): ?>
+            <div class="test-info-item full-width warning-box">
+                <strong>Expected Behavior:</strong>
+                <p>This page has an error BETWEEN two injection attempts. The FIRST review should load successfully, but the SECOND should NOT appear due to the runtime error.</p>
+            </div>
+            <?php endif; ?>
+        </div>
     </div>
 
     <!-- Navigation -->
