@@ -682,3 +682,19 @@ a:hover {
     padding: 1rem;
     border-radius: 0 4px 4px 0;
 }
+
+/* Log Analyzer Link */
+.log-analyzer-link:hover {
+    color: var(--color-accent-hover);
+}
+
+/* Test Info Lists */
+.test-info ol {
+    margin: 0.5rem 0 0 0;
+    padding: 0 0 0 1.5rem;
+}
+
+.test-info ol li {
+    margin-bottom: 0.25rem;
+    font-size: 0.9375rem;
+}

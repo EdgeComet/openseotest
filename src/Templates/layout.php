@@ -25,6 +25,7 @@
 
     <script src="<?= $asset->js('site.js') ?>" defer></script>
     <script src="<?= $asset->js('beacon.js') ?>" defer></script>
+    <script src="<?= $asset->js('log-analyzer-link.js') ?>" defer></script>
     <?php if (!empty($templateJs)): ?>
     <script src="<?= $asset->js('tests/' . $templateJs . '.js') ?>" defer></script>
     <?php endif; ?>
