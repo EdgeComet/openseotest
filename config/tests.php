@@ -68,4 +68,15 @@ return [
             '503' => ['title' => '503 Service Unavailable', 'code' => 503],
         ],
     ],
+    'semantic-html' => [
+        'name' => 'Semantic HTML',
+        'description' => 'Tests AI comprehension of semantic HTML vs utility CSS classes',
+        'template' => 'semantic-product',
+        'tests' => [
+            'product-a' => ['title' => 'Product Page (Semantic)', 'template' => 'semantic-product', 'variant' => 'semantic'],
+            'product-b' => ['title' => 'Product Page (Tailwind)', 'template' => 'semantic-product', 'variant' => 'tailwind'],
+            'job-a' => ['title' => 'Job Listing (Semantic)', 'template' => 'semantic-job', 'variant' => 'semantic'],
+            'job-b' => ['title' => 'Job Listing (Tailwind)', 'template' => 'semantic-job', 'variant' => 'tailwind'],
+        ],
+    ],
 ];

@@ -31,7 +31,8 @@ class TestRegistryTest extends TestCase
         $this->assertArrayHasKey('js-errors', $categories);
         $this->assertArrayHasKey('realtime', $categories);
         $this->assertArrayHasKey('http-status', $categories);
-        $this->assertCount(6, $categories);
+        $this->assertArrayHasKey('semantic-html', $categories);
+        $this->assertCount(7, $categories);
     }
 
     public function testGetCategoryReturnsCorrectCategory(): void

@@ -41,6 +41,7 @@ class HomeController
         // Render layout with home content
         return View::render('layout', [
             'title' => 'SEO & AI Bot Testing Platform - openseotest.org',
+            'description' => 'Open-source platform for testing how search engines and AI bots handle JavaScript rendering. Run experiments, analyze logs, and verify bot behavior with real data.',
             'content' => $content,
             'debugHash' => $debugHash,
             'asset' => $asset,

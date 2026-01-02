@@ -16,6 +16,7 @@ return [
     ['method' => 'GET', 'pattern' => '/lab/ajax-chain/{steps}-steps/{hash}/fetch/{step}', 'handler' => [LabController::class, 'ajaxChainFetch']],
     ['method' => 'GET', 'pattern' => '/lab/realtime/timer/{hash}/status', 'handler' => [LabController::class, 'realtimeStatus']],
     ['method' => 'GET', 'pattern' => '/lab/http-status/{code}/target', 'handler' => [LabController::class, 'redirectTarget']],
+    ['method' => 'GET', 'pattern' => '/lab/semantic-html', 'handler' => [LabController::class, 'semanticIndex']],
     ['method' => 'GET', 'pattern' => '/lab/{category}/{test}', 'handler' => [LabController::class, 'show']],
     ['method' => 'GET', 'pattern' => '/dist/{hash}/{path:*}', 'handler' => [AssetController::class, 'serve']],
     ['method' => 'POST', 'pattern' => '/api/beacon/{hash}/{event}', 'handler' => [ApiController::class, 'beacon']],

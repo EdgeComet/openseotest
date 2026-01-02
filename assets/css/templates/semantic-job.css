@@ -1,0 +1,176 @@
+/**
+ * Semantic Job Template Styles
+ *
+ * Used for semantic HTML vs Tailwind CSS comparison tests.
+ * Job listing page layout with semantic signal classes.
+ */
+
+/* Job Page Container */
+.semantic-job {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Urgency Signal - matches Tailwind border-2 border-orange-500 rounded-lg p-6 */
+.job-card.urgent-hiring {
+    border: 2px solid #f97316;  /* orange-500 */
+    border-radius: 0.5rem;      /* rounded-lg */
+    padding: 1.5rem;            /* p-6 */
+}
+
+/* Job Header */
+.semantic-job .job-header {
+    margin-bottom: 1.5rem;
+}
+
+.semantic-job .job-company {
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.semantic-job .job-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.semantic-job .job-location-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.semantic-job .job-location {
+    color: var(--color-text-secondary);
+}
+
+/* Work Type Signal - matches Tailwind text-gray-600 text-sm */
+.work-type-indicator {
+    color: #4b5563;             /* gray-600 */
+    font-size: 0.875rem;        /* text-sm */
+}
+
+.work-type-indicator.remote { }
+.work-type-indicator.hybrid { }
+.work-type-indicator.onsite { }
+
+/* Job Meta */
+.semantic-job .job-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+/* Experience Signal - matches Tailwind text-gray-600 text-sm */
+.experience-indicator {
+    color: #4b5563;             /* gray-600 */
+    font-size: 0.875rem;        /* text-sm */
+}
+
+.experience-indicator.senior-level { }
+.experience-indicator.mid-level { }
+.experience-indicator.junior-level { }
+
+/* Salary Section */
+.semantic-job .job-salary {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.semantic-job .salary-label {
+    color: var(--color-text-secondary);
+    margin-right: 0.5rem;
+}
+
+/* Salary Signal - matches Tailwind font-semibold text-gray-900 */
+.salary-amount.salary-confirmed {
+    font-weight: 600;           /* font-semibold */
+    color: #111827;             /* gray-900 */
+}
+
+.salary-amount.salary-estimate {
+    font-style: italic;
+    color: #6b7280;             /* gray-500 */
+}
+
+/* Job Description */
+.semantic-job .job-description {
+    margin-bottom: 1.5rem;
+}
+
+.semantic-job .job-description h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.semantic-job .job-description p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Requirements */
+.semantic-job .job-requirements {
+    margin-bottom: 1.5rem;
+}
+
+.semantic-job .job-requirements h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+}
+
+.semantic-job .job-requirements ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: var(--color-text-secondary);
+}
+
+.semantic-job .job-requirements li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Apply Button */
+.semantic-job .apply-button {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.semantic-job .apply-button:hover {
+    background-color: var(--color-accent-hover);
+}
+
+/* Test Info Box */
+.test-info {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: var(--color-bg-tertiary);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-accent);
+}
+
+.test-info h4 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+}
+
+.test-info code {
+    background-color: var(--color-bg-code);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 0.875em;
+}

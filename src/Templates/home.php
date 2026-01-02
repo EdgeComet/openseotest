@@ -66,11 +66,12 @@
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h4>Log Analysis (Coming Soon)</h4>
+                    <h4>Log Analysis</h4>
                     <p>
-                        We are building an open dashboard to analyze these hashes in real-time.
-                        Soon, you will be able to cross-reference server logs with JS beacon data to see the exact
-                        timeline of bot rendering behavior across the entire platform.
+                        Our open dashboard lets you analyze debug hashes in real-time.
+                        Cross-reference server logs with JS beacon data to see the exact
+                        timeline of bot rendering behavior across the platform.
+                        <a href="/logs/">Explore the logs</a>.
                     </p>
                 </div>
             </div>

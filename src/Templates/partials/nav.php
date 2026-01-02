@@ -1,7 +1,8 @@
 <nav class="main-nav">
     <div class="nav-container">
         <a href="/" class="nav-logo">
-            <span class="logo-text">openseotest.org</span>
+            <img src="/logo.svg" alt="" class="logo-icon" width="32" height="32">
+            <span class="logo-text">Open<span class="logo-accent">Seo</span>Test</span>
         </a>
         <div class="nav-links">
             <a href="/#about" class="nav-link">About</a>

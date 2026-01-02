@@ -11,14 +11,16 @@
             <div class="footer-column">
                 <h4>Project</h4>
                 <a href="/">Home</a>
-                <a href="/#about">About</a>
-                <a href="/#how-it-works">How It Works</a>
                 <a href="https://github.com/EdgeComet/openseotest" target="_blank" rel="noopener">GitHub Repository</a>
             </div>
             <div class="footer-column">
                 <h4>Resources</h4>
                 <a href="https://edgecomet.com/blog/" target="_blank" rel="noopener">Research Blog</a>
                 <a href="https://edgecomet.com" target="_blank" rel="noopener">Edge Comet</a>
+            </div>
+            <div class="footer-column">
+                <h4>Free Projects</h4>
+                <a href="https://jsbug.org" target="_blank" rel="noopener" title="Free JavaScript SEO Debugger Tool">JsBug</a>
             </div>
         </div>
     </div>

@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($title) ?></title>
+    <?php if (!empty($description)): ?>
+    <meta name="description" content="<?= htmlspecialchars($description) ?>">
+    <?php endif; ?>
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="<?= $asset->css('site.css') ?>">
     <?php if (!empty($templateCss)): ?>
     <link rel="stylesheet" href="<?= $asset->css('templates/' . $templateCss . '.css') ?>">

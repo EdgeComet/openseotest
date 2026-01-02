@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Flask outline -->
+  <path d="M13 6 L13 11 L5 27 L27 27 L19 11 L19 6" fill="none" stroke="#ff6b4a" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="11" y="3" width="10" height="4" rx="1" fill="none" stroke="#ff6b4a" stroke-width="2"/>
+</svg>

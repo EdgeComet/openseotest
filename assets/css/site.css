@@ -218,10 +218,22 @@ a:hover {
 }
 
 .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-text-primary);
     text-decoration: none;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.logo-accent {
+    color: var(--color-accent);
 }
 
 .nav-logo:hover {
@@ -360,6 +372,7 @@ a:hover {
 
 .footer-tagline {
     color: var(--color-text-muted);
+    font-size: 0.875rem;
     margin-bottom: 0.25rem;
 }
 

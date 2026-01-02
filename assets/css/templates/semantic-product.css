@@ -1,0 +1,174 @@
+/**
+ * Semantic Product Template Styles
+ *
+ * Used for semantic HTML vs Tailwind CSS comparison tests.
+ * E-commerce product page layout with semantic signal classes.
+ */
+
+/* Product Page Container */
+.semantic-product {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Product Layout */
+.semantic-product .product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .semantic-product .product-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Product Image */
+.semantic-product .product-image {
+    background-color: var(--color-bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.semantic-product .product-image-placeholder {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+}
+
+/* Product Details */
+.semantic-product .product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.semantic-product .product-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.semantic-product .product-brand {
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.semantic-product .product-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.semantic-product .product-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Product Meta - Container for signals */
+.semantic-product .product-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Semantic Signal Classes */
+
+/* Availability Indicator - matches Tailwind w-3 h-3 rounded-full */
+.availability-indicator {
+    width: 0.75rem;      /* 12px, matches w-3 */
+    height: 0.75rem;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.availability-indicator.in-stock {
+    background-color: #22c55e;  /* green-500 */
+}
+
+.availability-indicator.out-of-stock {
+    background-color: #ef4444;  /* red-500 */
+}
+
+/* Stock Indicator - matches Tailwind w-2 h-2 rounded-full */
+.stock-indicator {
+    width: 0.5rem;       /* 8px, matches w-2 */
+    height: 0.5rem;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.stock-indicator.low-stock {
+    background-color: #f97316;  /* orange-500 */
+}
+
+.stock-indicator.normal-stock {
+    background-color: #22c55e;  /* green-500 */
+}
+
+/* Condition Badge - matches Tailwind px-2 py-1 text-xs rounded */
+.condition-badge {
+    padding: 0.25rem 0.5rem;   /* py-1 px-2 */
+    font-size: 0.75rem;        /* text-xs */
+    border-radius: 0.25rem;    /* rounded */
+    display: inline-block;
+}
+
+.condition-badge.condition-new {
+    background-color: #dbeafe;  /* blue-100 */
+    color: #1e40af;             /* blue-800 */
+}
+
+.condition-badge.condition-refurbished {
+    background-color: #f3f4f6;  /* gray-100 */
+    color: #1f2937;             /* gray-800 */
+}
+
+/* Add to Cart Button */
+.semantic-product .add-to-cart {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: fit-content;
+}
+
+.semantic-product .add-to-cart:hover {
+    background-color: var(--color-accent-hover);
+}
+
+/* Test Info Box */
+.test-info {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: var(--color-bg-tertiary);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-accent);
+}
+
+.test-info h4 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+}
+
+.test-info code {
+    background-color: var(--color-bg-code);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 0.875em;
+}

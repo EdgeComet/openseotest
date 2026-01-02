@@ -44,8 +44,11 @@ class LabController
         // Create asset helper with hash
         $asset = new Asset($debugHash);
 
-        // Determine which template to use
-        $template = $categoryData['template'] ?? 'article';
+        // Determine which template to use (test can override category template)
+        $template = $testData['template'] ?? $categoryData['template'] ?? 'article';
+
+        // Always load template CSS (contains layout styles needed by both variants)
+        $templateCss = $template;
 
         // Get next test in sequence for navigation
         $nextTest = $this->getNextTest($category, $test);
@@ -84,7 +87,7 @@ class LabController
             'content' => $content,
             'debugHash' => $debugHash,
             'asset' => $asset,
-            'templateCss' => $template,
+            'templateCss' => $templateCss,
             'templateJs' => $templateJs,
         ]);
     }
@@ -472,6 +475,50 @@ class LabController
 
         return View::render('layout', [
             'title' => $codeInt . ' Redirect Target - openseotest.org',
+            'content' => $content,
+            'debugHash' => $debugHash,
+            'asset' => $asset,
+            'templateCss' => 'article',
+            'templateJs' => null,
+        ]);
+    }
+
+    /**
+     * Display the semantic-html category index page.
+     */
+    public function semanticIndex(): void
+    {
+        // Get category data
+        $category = TestRegistry::getCategory('semantic-html');
+        if ($category === null) {
+            Response::current()->setStatusCode(404);
+            echo 'Category not found';
+            return;
+        }
+
+        // Get tests array from category data
+        $tests = $category['tests'] ?? [];
+
+        // Generate unique hash for this page view
+        $debugHash = HashGenerator::generate();
+
+        // Set X-Debug-Hash header for nginx log correlation
+        Response::current()->setHeader('X-Debug-Hash', $debugHash);
+
+        // Create asset helper with hash
+        $asset = new Asset($debugHash);
+
+        // Render the page template
+        $content = View::render('pages/semantic-index', [
+            'debugHash' => $debugHash,
+            'category' => $category,
+            'categoryName' => $category['name'] ?? 'Semantic HTML',
+            'tests' => $tests,
+        ]);
+
+        // Render layout with template content
+        echo View::render('layout', [
+            'title' => ($category['name'] ?? 'Semantic HTML') . ' - openseotest.org',
             'content' => $content,
             'debugHash' => $debugHash,
             'asset' => $asset,
