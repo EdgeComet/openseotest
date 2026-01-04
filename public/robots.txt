@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://openseotest.org/sitemap.xml
+Disallow: /logs/
