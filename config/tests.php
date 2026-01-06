@@ -91,6 +91,11 @@ return [
             '3-seconds' => ['title' => '3 Second Delay', 'delay' => 3000],
             '4-seconds' => ['title' => '4 Second Delay', 'delay' => 4000],
             '5-seconds' => ['title' => '5 Second Delay', 'delay' => 5000],
+            '6-seconds' => ['title' => '6 Second Delay', 'delay' => 6000],
+            '7-seconds' => ['title' => '7 Second Delay', 'delay' => 7000],
+            '8-seconds' => ['title' => '8 Second Delay', 'delay' => 8000],
+            '9-seconds' => ['title' => '9 Second Delay', 'delay' => 9000],
+            '10-seconds' => ['title' => '10 Second Delay', 'delay' => 10000],
         ],
     ],
 ];
