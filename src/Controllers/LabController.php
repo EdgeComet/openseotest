@@ -35,6 +35,11 @@ class LabController
             return $this->handleHttpStatusTest($test, $testData);
         }
 
+        // Apply server-side delay for loading-time tests
+        if ($category === 'loading-time' && isset($testData['delay'])) {
+            usleep($testData['delay'] * 1000); // Convert ms to microseconds
+        }
+
         // Generate unique hash for this page view
         $debugHash = HashGenerator::generate();
 
@@ -48,7 +53,8 @@ class LabController
         $template = $testData['template'] ?? $categoryData['template'] ?? 'article';
 
         // Always load template CSS (contains layout styles needed by both variants)
-        $templateCss = $template;
+        // Tests can override CSS file via templateCss config (useful when templates share CSS)
+        $templateCss = $testData['templateCss'] ?? $categoryData['templateCss'] ?? $template;
 
         // Get next test in sequence for navigation
         $nextTest = $this->getNextTest($category, $test);

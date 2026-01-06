@@ -75,8 +75,22 @@ return [
         'tests' => [
             'product-a' => ['title' => 'Product Page (Semantic)', 'template' => 'semantic-product', 'variant' => 'semantic'],
             'product-b' => ['title' => 'Product Page (Tailwind)', 'template' => 'semantic-product', 'variant' => 'tailwind'],
+            'product-jsonld' => ['title' => 'Product Page (JSON-LD)', 'template' => 'semantic-product-jsonld', 'templateCss' => 'semantic-product'],
             'job-a' => ['title' => 'Job Listing (Semantic)', 'template' => 'semantic-job', 'variant' => 'semantic'],
             'job-b' => ['title' => 'Job Listing (Tailwind)', 'template' => 'semantic-job', 'variant' => 'tailwind'],
+        ],
+    ],
+    'loading-time' => [
+        'name' => 'Loading Time',
+        'description' => 'Tests how long bots wait for server response. Server-side delays simulate slow page generation.',
+        'template' => 'loading-time',
+        'templateCss' => 'article',
+        'tests' => [
+            '1-second' => ['title' => '1 Second Delay', 'delay' => 1000],
+            '2-seconds' => ['title' => '2 Second Delay', 'delay' => 2000],
+            '3-seconds' => ['title' => '3 Second Delay', 'delay' => 3000],
+            '4-seconds' => ['title' => '4 Second Delay', 'delay' => 4000],
+            '5-seconds' => ['title' => '5 Second Delay', 'delay' => 5000],
         ],
     ],
 ];

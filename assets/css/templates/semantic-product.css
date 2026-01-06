@@ -130,6 +130,26 @@
     color: #1f2937;             /* gray-800 */
 }
 
+/* Text labels for availability/stock */
+.availability-text,
+.stock-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+/* Product Identifiers */
+.product-identifiers {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.product-sku,
+.product-mpn {
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+}
+
 /* Add to Cart Button */
 .semantic-product .add-to-cart {
     background-color: var(--color-accent);
