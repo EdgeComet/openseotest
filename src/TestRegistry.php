@@ -58,12 +58,13 @@ class TestRegistry
         }
 
         // Return test data with category info included
-        return array_merge($categoryData['tests'][$test], [
+        // Test-specific values (like template) take precedence over category defaults
+        return array_merge([
             'category' => $category,
             'categoryName' => $categoryData['name'],
             'template' => $categoryData['template'],
             'slug' => $test,
-        ]);
+        ], $categoryData['tests'][$test]);
     }
 
     /**
