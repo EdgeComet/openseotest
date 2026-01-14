@@ -76,6 +76,7 @@ return [
             'product-a' => ['title' => 'Product Page (Semantic)', 'template' => 'semantic-product', 'variant' => 'semantic'],
             'product-b' => ['title' => 'Product Page (Tailwind)', 'template' => 'semantic-product', 'variant' => 'tailwind'],
             'product-jsonld' => ['title' => 'Product Page (JSON-LD)', 'template' => 'semantic-product-jsonld', 'templateCss' => 'semantic-product'],
+            'product-jsonld-head' => ['title' => 'Product Page (JSON-LD in Head)', 'template' => 'semantic-product-jsonld-head', 'templateCss' => 'semantic-product', 'headJsonLd' => true],
             'job-a' => ['title' => 'Job Listing (Semantic)', 'template' => 'semantic-job', 'variant' => 'semantic'],
             'job-b' => ['title' => 'Job Listing (Tailwind)', 'template' => 'semantic-job', 'variant' => 'tailwind'],
         ],

@@ -87,6 +87,12 @@ class LabController
             $templateJs = 'js-errors/' . $test;
         }
 
+        // Build head JSON-LD if test config requests it
+        $headJsonLd = null;
+        if (!empty($testData['headJsonLd'])) {
+            $headJsonLd = $this->buildProductJsonLd($category, $test);
+        }
+
         // Render layout with template content
         return View::render('layout', [
             'title' => $testData['title'] . ' - openseotest.org',
@@ -95,6 +101,7 @@ class LabController
             'asset' => $asset,
             'templateCss' => $templateCss,
             'templateJs' => $templateJs,
+            'headJsonLd' => $headJsonLd,
         ]);
     }
 
@@ -116,6 +123,44 @@ class LabController
         }
 
         return $tests[$currentIndex + 1];
+    }
+
+    /**
+     * Build JSON-LD structured data for product pages.
+     */
+    private function buildProductJsonLd(string $category, string $test): array
+    {
+        $pageUrl = 'https://openseotest.org/lab/' . $category . '/' . $test;
+
+        return [
+            '@context' => 'https://schema.org',
+            '@type' => 'Product',
+            'name' => 'ProSound X500 Wireless Headphones',
+            'brand' => [
+                '@type' => 'Brand',
+                'name' => 'AudioTech'
+            ],
+            'description' => 'Premium wireless headphones with active noise cancellation, 40-hour battery life, and crystal-clear audio quality. Perfect for music lovers and professionals.',
+            'sku' => 'PS-X500-BLK',
+            'mpn' => 'X500-2024',
+            'gtin13' => '0123456789012',
+            'itemCondition' => 'https://schema.org/NewCondition',
+            'offers' => [
+                '@type' => 'Offer',
+                'url' => $pageUrl,
+                'priceCurrency' => 'USD',
+                'price' => '299.99',
+                'availability' => 'https://schema.org/InStock',
+                'inventoryLevel' => [
+                    '@type' => 'QuantitativeValue',
+                    'value' => 5
+                ],
+                'seller' => [
+                    '@type' => 'Organization',
+                    'name' => 'AudioTech Store'
+                ]
+            ]
+        ];
     }
 
     /**

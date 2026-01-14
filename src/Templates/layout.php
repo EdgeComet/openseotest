@@ -12,6 +12,11 @@
     <?php if (!empty($templateCss)): ?>
     <link rel="stylesheet" href="<?= $asset->css('templates/' . $templateCss . '.css') ?>">
     <?php endif; ?>
+    <?php if (!empty($headJsonLd)): ?>
+    <script type="application/ld+json">
+<?= json_encode($headJsonLd, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?>
+    </script>
+    <?php endif; ?>
 </head>
 <body>
     <?php include __DIR__ . '/partials/header.php'; ?>
