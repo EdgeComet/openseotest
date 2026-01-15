@@ -144,7 +144,9 @@ class LabController
             'sku' => 'PS-X500-BLK',
             'mpn' => 'X500-2024',
             'gtin13' => '0123456789012',
-            'itemCondition' => 'https://schema.org/NewCondition',
+            'itemCondition' => str_contains($test, 'used')
+                ? 'https://schema.org/UsedCondition'
+                : 'https://schema.org/NewCondition',
             'offers' => [
                 '@type' => 'Offer',
                 'url' => $pageUrl,

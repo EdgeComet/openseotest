@@ -22,10 +22,11 @@
             </p>
 
             <!-- Product Meta - Semantic signals -->
+            <?php $conditionClass = $condition ?? 'new'; ?>
             <div class="product-meta">
                 <span class="<?= $isTailwind ? 'w-3 h-3 rounded-full bg-green-500' : 'availability-indicator in-stock' ?>"></span>
                 <span class="<?= $isTailwind ? 'w-2 h-2 rounded-full bg-orange-500' : 'stock-indicator low-stock' ?>"></span>
-                <span class="<?= $isTailwind ? 'px-2 py-1 text-xs rounded bg-blue-100 text-blue-800' : 'condition-badge condition-new' ?>"></span>
+                <span class="<?= $isTailwind ? 'px-2 py-1 text-xs rounded bg-blue-100 text-blue-800' : 'condition-badge condition-' . $conditionClass ?>"></span>
             </div>
 
             <!-- Add to Cart -->

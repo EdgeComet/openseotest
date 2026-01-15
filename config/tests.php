@@ -74,6 +74,7 @@ return [
         'template' => 'semantic-product',
         'tests' => [
             'product-a' => ['title' => 'Product Page (Semantic)', 'template' => 'semantic-product', 'variant' => 'semantic'],
+            'product-used' => ['title' => 'Product Page (Semantic)', 'template' => 'semantic-product', 'variant' => 'semantic', 'condition' => 'used'],
             'product-b' => ['title' => 'Product Page (Tailwind)', 'template' => 'semantic-product', 'variant' => 'tailwind'],
             'product-jsonld' => ['title' => 'Product Page (JSON-LD)', 'template' => 'semantic-product-jsonld', 'templateCss' => 'semantic-product'],
             'product-jsonld-head' => ['title' => 'Product Page (JSON-LD in Head)', 'template' => 'semantic-product-jsonld-head', 'templateCss' => 'semantic-product', 'headJsonLd' => true],

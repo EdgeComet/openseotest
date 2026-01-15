@@ -130,6 +130,11 @@
     color: #1f2937;             /* gray-800 */
 }
 
+.condition-badge.condition-used {
+    background-color: #fef3c7;  /* amber-100 */
+    color: #92400e;             /* amber-800 */
+}
+
 /* Text labels for availability/stock */
 .availability-text,
 .stock-text {
