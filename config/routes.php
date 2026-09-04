@@ -6,6 +6,7 @@ use Ost\Controllers\ApiController;
 use Ost\Controllers\AssetController;
 use Ost\Controllers\HomeController;
 use Ost\Controllers\LabController;
+use Ost\Controllers\PromptController;
 use Ost\Controllers\SitemapController;
 
 return [
@@ -18,6 +19,8 @@ return [
     ['method' => 'GET', 'pattern' => '/lab/http-status/{code}/target', 'handler' => [LabController::class, 'redirectTarget']],
     ['method' => 'GET', 'pattern' => '/lab/semantic-html', 'handler' => [LabController::class, 'semanticIndex']],
     ['method' => 'GET', 'pattern' => '/lab/{category}/{test}', 'handler' => [LabController::class, 'show']],
+    // Standalone prompt pages for conference QR codes (noindex)
+    ['method' => 'GET', 'pattern' => '/p/{slug}', 'handler' => [PromptController::class, 'show']],
     ['method' => 'GET', 'pattern' => '/dist/{hash}/{path:*}', 'handler' => [AssetController::class, 'serve']],
     ['method' => 'POST', 'pattern' => '/api/beacon/{hash}/{event}', 'handler' => [ApiController::class, 'beacon']],
 ];
