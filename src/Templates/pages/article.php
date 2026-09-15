@@ -44,11 +44,14 @@
                     <li>Copy this page URL</li>
                     <li>Open ChatGPT, Claude, or Gemini</li>
                     <?php if ($test === 'domcontentinit'): ?>
-                    <li>Ask: "What does the PixelPulse team say about innovation on this page?"</li>
+                    <li>Ask: "What is the serial number of the prototype that was pulled from
+                        the cold chamber batch? Answer with the serial number only."</li>
+                    <li>The serial number lives only in the injected content. An AI that returns it
+                        executed the JavaScript; an AI that returns anything else guessed</li>
                     <?php else: ?>
                     <li>Ask: "What was injected after the delay on this page?"</li>
-                    <?php endif; ?>
                     <li>If the AI answers correctly, it executed the JavaScript and saw the injected content</li>
+                    <?php endif; ?>
                 </ol>
             </div>
             <?php endif; ?>

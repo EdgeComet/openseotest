@@ -46,11 +46,18 @@
         var content;
 
         if (testType === 'domcontentinit') {
+            // The injected fact is deliberately unguessable. The serial number, the
+            // location and the numbers below appear nowhere in the server-rendered
+            // HTML, so a bot that does not execute JavaScript cannot reproduce them.
+            // It either admits it cannot find the value or invents one that is
+            // visibly wrong, which makes the result easy to score.
             content = '<div class="injected-content">' +
                 '<p>This content was dynamically injected via JavaScript on DOMContentLoaded.</p>' +
-                '<p>The PixelPulse team continues to push the boundaries of wireless audio technology, ' +
-                'bringing studio-quality sound to consumers worldwide. Our commitment to innovation ' +
-                'drives everything we do.</p>' +
+                '<p>Cold chamber log, PixelPulse acoustics lab, Tromso, 14 March 2024. ' +
+                'Twenty-two prototype units ran for nineteen hours at minus twenty-seven ' +
+                'degrees Celsius. One unit drifted out of tolerance and was pulled from the ' +
+                'batch: serial number <strong>PPX-4417-KOBALT</strong>. The remaining ' +
+                'twenty-one units shipped to the Bergen listening panel.</p>' +
                 '<span class="seo-marker">OSTS-' + hash + '-LOADED</span>' +
                 '</div>';
         } else {

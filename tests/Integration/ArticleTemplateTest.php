@@ -86,6 +86,16 @@ class ArticleTemplateTest extends TestCase
         $this->assertStringContainsString('id="injected-content"', $response['body']);
     }
 
+    public function testArticlePageDoesNotLeakInjectedSerialNumber(): void
+    {
+        $response = $this->request('GET', '/lab/js-injection/domcontentinit');
+
+        // The serial number must reach the reader only through JavaScript. The moment
+        // it shows up in the server response, a bot can answer without rendering and
+        // the page stops measuring anything.
+        $this->assertStringNotContainsString('PPX-4417-KOBALT', $response['body']);
+    }
+
     public function testArticlePageIncludesDebugBadge(): void
     {
         $response = $this->request('GET', '/lab/js-injection/domcontentinit');

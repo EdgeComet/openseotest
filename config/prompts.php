@@ -8,12 +8,17 @@ declare(strict_types=1);
  * Each page shows one prompt and nothing else, so conference attendees can
  * scan a QR code, copy the text on their phone and paste it into an AI chat.
  * The pages are excluded from indexing via a robots meta tag.
+ *
+ * Ask for a value the model cannot guess, never for a topic it can paraphrase.
+ * Never put the correct answer on these pages: they are reachable over HTTP, so
+ * anything printed here is one fetch away from the model being tested.
  */
 return [
     '1' => [
         'title' => 'Prompt 1',
-        'text' => "read the page https://openseotest.org/lab/js-injection/domcontentinit\n"
-            . 'What does the PixelPulse team say about innovation on this page?',
+        'text' => "Read the page https://openseotest.org/lab/js-injection/domcontentinit\n"
+            . "What is the serial number of the prototype that was pulled from the cold chamber batch?\n"
+            . 'Answer with the serial number only.',
     ],
     '2' => [
         'title' => 'Prompt 2',
