@@ -17,8 +17,7 @@ return [
     '1' => [
         'title' => 'Prompt 1',
         'text' => "Read the page https://openseotest.org/lab/js-injection/domcontentinit\n"
-            . "What is the serial number of the prototype that was pulled from the cold chamber batch?\n"
-            . 'Answer with the serial number only.',
+            . 'What is the serial number of the prototype that was pulled from the cold chamber batch?',
     ],
     '2' => [
         'title' => 'Prompt 2',

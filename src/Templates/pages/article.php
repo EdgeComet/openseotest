@@ -45,7 +45,7 @@
                     <li>Open ChatGPT, Claude, or Gemini</li>
                     <?php if ($test === 'domcontentinit'): ?>
                     <li>Ask: "What is the serial number of the prototype that was pulled from
-                        the cold chamber batch? Answer with the serial number only."</li>
+                        the cold chamber batch?"</li>
                     <li>The serial number lives only in the injected content. An AI that returns it
                         executed the JavaScript; an AI that returns anything else guessed</li>
                     <?php else: ?>
