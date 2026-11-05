@@ -15,13 +15,10 @@
             On this platform, access logs are open for everyone, allowing you to verify your hypotheses
             immediately with real data.
         </p>
-        <?php /* Temporarily hidden. Kept as a PHP comment so the text stays out of the
-           response body entirely - an HTML comment would still ship it to crawlers.
         <p>
             We regularly publish our experiment results and deep-dive researches on the
             <a href="https://edgecomet.com/blog/" target="_blank" rel="noopener">EdgeComet Blog</a>.
         </p>
-        */ ?>
         <p>
             Whether you are testing dynamic rendering implementations or researching bot capabilities, this project enables you to create new tests, deploy them,
             and observe the results.
