@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php if (!empty($gtmId)): ?>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=<?= htmlspecialchars($gtmId) ?>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
+    <!-- End Google Tag Manager -->
+    <?php endif; ?>
     <title><?= htmlspecialchars($title) ?></title>
     <?php if (!empty($description)): ?>
     <meta name="description" content="<?= htmlspecialchars($description) ?>">

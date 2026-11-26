@@ -109,4 +109,18 @@ return [
             'secret' => ['title' => 'Secret Page Test'],
         ],
     ],
+    // EdgeComet Academy, Edge SEO Course lessons 1.4 (Google Tag Manager) and 1.5 (Cloudflare Worker).
+    // The server HTML must keep its starting state: a generic title, no canonical, no structured data,
+    // no robots meta tag. The lessons add the fixes outside this code.
+    // 'gtm' loads that Tag Manager container on this page only. nginx allows GTM in the CSP for
+    // /lab/diy-seo/ only (openseotest_private, openseotest.conf.j2).
+    'diy-seo' => [
+        'name' => 'DIY SEO Fixes',
+        'description' => 'A product page whose server HTML has a generic title, no canonical tag and no structured data. The Edge SEO Course adds those fixes with Google Tag Manager (lesson 1.4) and a Cloudflare Worker (lesson 1.5), then checks which bots see them.',
+        'template' => 'diy-product',
+        'templateJs' => null,
+        'tests' => [
+            'product' => ['title' => 'Product page', 'gtm' => 'GTM-PVHH6K49'],
+        ],
+    ],
 ];

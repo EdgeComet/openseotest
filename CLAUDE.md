@@ -65,6 +65,7 @@ Defined in `config/tests.php`:
 - **js-errors**: Tests crawler behavior with JavaScript errors
 - **realtime**: Interactive timer with status polling
 - **http-status**: HTTP status code handling (301, 302, 404, 500, 503)
+- **diy-seo**: Edge SEO Course lessons 1.4-1.5 product page; the only page that loads Google Tag Manager (`gtm` key), with its own CSP in nginx. Keep its server HTML free of canonical, JSON-LD, microdata and robots tags
 
 ## Directory Structure
 

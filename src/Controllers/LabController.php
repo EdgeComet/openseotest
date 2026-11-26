@@ -81,10 +81,22 @@ class LabController
         // Render the page template
         $content = View::render('pages/' . $template, $templateData);
 
-        // Determine JS file path - js-errors uses per-test files
+        // Determine JS file path - js-errors uses per-test files.
+        // A test or category can set 'templateJs' (null for none).
         $templateJs = $category;
         if ($category === 'js-errors') {
             $templateJs = 'js-errors/' . $test;
+        }
+        if (array_key_exists('templateJs', $testData)) {
+            $templateJs = $testData['templateJs'];
+        } elseif (array_key_exists('templateJs', $categoryData)) {
+            $templateJs = $categoryData['templateJs'];
+        }
+
+        // Google Tag Manager container, only for tests that set 'gtm'
+        $gtmId = $testData['gtm'] ?? null;
+        if (!is_string($gtmId) || !preg_match('/^GTM-[A-Z0-9]+$/', $gtmId)) {
+            $gtmId = null;
         }
 
         // Build head JSON-LD if test config requests it
@@ -102,6 +114,7 @@ class LabController
             'templateCss' => $templateCss,
             'templateJs' => $templateJs,
             'headJsonLd' => $headJsonLd,
+            'gtmId' => $gtmId,
         ]);
     }
 

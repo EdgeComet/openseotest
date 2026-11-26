@@ -34,7 +34,8 @@ class TestRegistryTest extends TestCase
         $this->assertArrayHasKey('semantic-html', $categories);
         $this->assertArrayHasKey('loading-time', $categories);
         $this->assertArrayHasKey('robots-txt', $categories);
-        $this->assertCount(9, $categories);
+        $this->assertArrayHasKey('diy-seo', $categories);
+        $this->assertCount(10, $categories);
     }
 
     public function testGetCategoryReturnsCorrectCategory(): void

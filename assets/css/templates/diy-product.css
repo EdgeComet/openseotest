@@ -1,0 +1,168 @@
+/**
+ * DIY SEO product page (Edge SEO Course, lessons 1.4 and 1.5).
+ * Self-contained so changes to the experiment templates never move this page.
+ */
+
+.diy-product {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.diy-product .product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .diy-product .product-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.diy-product .product-image {
+    background-color: var(--color-bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.diy-product .product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.diy-product .product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.diy-product .product-brand {
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.diy-product .product-title {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.diy-product .product-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.diy-product .product-availability {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    color: var(--color-text-secondary);
+}
+
+.diy-product .availability-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: #22c55e;
+    display: inline-block;
+}
+
+.diy-product .product-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.diy-product .product-meta {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.diy-product .product-sku {
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+}
+
+.diy-product .add-to-cart {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: fit-content;
+}
+
+.diy-product .add-to-cart:hover {
+    background-color: var(--color-accent-hover);
+}
+
+.diy-product .product-more {
+    margin-bottom: 2rem;
+}
+
+.diy-product .product-more h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.diy-product .product-more ul {
+    padding-left: 1.25rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.diy-product .test-info {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: var(--color-bg-tertiary);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-accent);
+}
+
+.diy-product .test-info h4 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+}
+
+.diy-product .test-info p {
+    margin: 0;
+    color: var(--color-text-secondary);
+}
+
+.diy-product .product-nav {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: 1rem;
+}
+
+.diy-product .product-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-bg-secondary);
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.diy-product .product-nav a:hover {
+    background-color: var(--color-bg-tertiary);
+    text-decoration: none;
+}
